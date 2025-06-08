@@ -1,7 +1,8 @@
 import React from "react";
+import Page from "../../components/layout/page";
 
 const Experiences = () => {
-  return <>Experiences</>;
+  return <Page>Experiences</Page>;
 };
 
 export default Experiences;

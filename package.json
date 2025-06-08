@@ -3,6 +3,10 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "env": {
+    "browser": true,
+    "node": true
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -11,6 +15,7 @@
   },
   "dependencies": {
     "antd": "^5.25.4",
+    "path": "^0.12.7",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.2"
