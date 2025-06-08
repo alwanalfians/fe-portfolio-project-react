@@ -1,65 +1,56 @@
 import React from "react";
-import {
-  LaptopOutlined,
-  NotificationOutlined,
-  UserOutlined,
-} from "@ant-design/icons";
 import { Breadcrumb, Layout, Menu, theme } from "antd";
+import { Link, useLocation } from "react-router-dom";
+
 const { Header, Content, Sider } = Layout;
 
-const items1 = ["1", "2", "3"].map((key) => ({
-  key,
-  label: `nav ${key}`,
-}));
-
-const items2 = [UserOutlined, LaptopOutlined, NotificationOutlined].map(
-  (icon, index) => {
-    const key = String(index + 1);
-    return {
-      key: `sub${key}`,
-      icon: React.createElement(icon),
-      label: `subnav ${key}`,
-      children: Array.from({ length: 4 }).map((_, j) => {
-        const subKey = index * 4 + j + 1;
-        return {
-          key: subKey,
-          label: `option${subKey}`,
-        };
-      }),
-    };
-  }
-);
-
 const Page = ({ children }) => {
+  const location = useLocation();
+  const listPath = location.pathname.split("/").filter((value) => value !== "");
+
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
+
+  const listMenu = [
+    "home",
+    "dashboard",
+    "educations",
+    "experiences",
+    "profile",
+  ].map((menu, index) => {
+    return {
+      key: menu,
+      label: (
+        <Link to={`/${menu === "home" ? "" : menu.toLocaleLowerCase()}`}>
+          {menu}
+        </Link>
+      ),
+    };
+  });
 
   return (
     <Layout>
       <Header style={{ display: "flex", alignItems: "center" }}>
         <div className="demo-logo" />
-        <Menu
-          theme="dark"
-          mode="horizontal"
-          defaultSelectedKeys={["2"]}
-          items={items1}
-          style={{ flex: 1, minWidth: 0 }}
-        />
       </Header>
       <Layout>
         <Sider width={200} style={{ background: colorBgContainer }}>
           <Menu
             mode="inline"
-            defaultSelectedKeys={["1"]}
-            defaultOpenKeys={["sub1"]}
+            defaultSelectedKeys={[listPath[0] !== "" ? listPath[0] : "home"]}
             style={{ height: "100%", borderRight: 0 }}
-            items={items2}
+            items={listMenu}
           />
         </Sider>
         <Layout style={{ padding: "0 24px 24px" }}>
           <Breadcrumb
-            items={[{ title: "Home" }, { title: "List" }, { title: "App" }]}
+            items={listPath.map((value, index) => {
+              return {
+                key: index,
+                title: value,
+              };
+            })}
             style={{ margin: "16px 0" }}
           />
           <Content
