@@ -1,8 +1,8 @@
 import React from "react";
-import Page from "../../components/layout/page";
+import Page from "../../components/page";
 
 const Educations = () => {
-  return <Page>Educations</Page>;
+  return <Page title="Educations">huhu</Page>;
 };
 
 export default Educations;

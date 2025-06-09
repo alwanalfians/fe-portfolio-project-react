@@ -6,7 +6,10 @@
     "paths": {
       "@assets/*": ["src/assets/*"],
       "@components/*": ["src/components/*"],
-      "@pages/*": ["src/pages/*"]
+      "@pages/*": ["src/pages/*"],
+      "@mockData/*": ["src/mockData/*"],
+      "@constants/*": ["src/constants/*"],
+      "@routes/*": ["src/routes/*"]
     }
   }
 }
