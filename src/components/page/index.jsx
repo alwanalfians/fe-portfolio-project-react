@@ -1,14 +1,13 @@
 import React from "react";
-import { Layout, Row, Typography } from "antd";
+import { Col, Layout, Row } from "antd";
 
 import HeaderBar from "@components/layout/headBar";
 import SideBar from "@components/layout/siderBar";
 import BreadcrumbBar from "@components/layout/breadcrumbBar";
 import ContentBar from "@components/layout/contentSection";
+import FootBar from "@components/layout/footbar";
 
-const { Title } = Typography;
-
-const Page = ({ title, children }) => {
+const Page = ({ title, icon, children }) => {
   return (
     <Layout>
       <HeaderBar />
@@ -17,11 +16,17 @@ const Page = ({ title, children }) => {
         <Layout style={{ padding: "0 24px 24px" }}>
           <BreadcrumbBar />
           <ContentBar>
-            <Row>
-              <Title>{title}</Title>
+            <Row style={{ marginBottom: "32px" }}>
+              <Col>
+                <h1>
+                  {icon}
+                  {title}
+                </h1>
+              </Col>
             </Row>
             {children}
           </ContentBar>
+          <FootBar />
         </Layout>
       </Layout>
     </Layout>

@@ -1,6 +1,7 @@
 import React from "react";
 import { Breadcrumb } from "antd";
 import { useLocation } from "react-router-dom";
+import { capitalizeFirstLetter } from "../../helper";
 
 const BreadcrumbBar = () => {
   const location = useLocation();
@@ -11,7 +12,7 @@ const BreadcrumbBar = () => {
       items={listPath.map((value, index) => {
         return {
           key: index,
-          title: value,
+          title: capitalizeFirstLetter(value),
         };
       })}
       style={{ margin: "16px 0" }}
