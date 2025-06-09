@@ -2,13 +2,11 @@ import {
   BookOutlined,
   DashboardOutlined,
   DatabaseOutlined,
-  HomeOutlined,
   ProfileOutlined,
 } from "@ant-design/icons";
 import React from "react";
 
 export const listMenu = [
-  { key: "/home", icon: <HomeOutlined />, label: "Home" },
   { key: "/dashboard", icon: <DashboardOutlined />, label: "Dashboard" },
   {
     key: "/data",

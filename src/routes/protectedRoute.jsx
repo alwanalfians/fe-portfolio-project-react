@@ -5,7 +5,7 @@ const ProtectedRoute = () => {
   const location = useLocation();
 
   if (location.pathname === "/") {
-    return <Navigate to="/home" state={{ from: location }} replace />;
+    return <Navigate to="/dashboard" state={{ from: location }} replace />;
   }
 
   return true;
