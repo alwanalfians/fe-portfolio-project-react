@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { Col, Row, Space, Table, Input, Button } from "antd";
+import { Table } from "antd";
 
 import Page from "@components/page";
 import { ExperiencesColumn } from "@constants/columns";
 import { listExperiences } from "@mockData/experiences";
-import { PlusOutlined, ProfileOutlined } from "@ant-design/icons";
-
-const { Search } = Input;
+import { ProfileOutlined } from "@ant-design/icons";
+import HeaderTable from "@components/headerTable";
 
 const Experiences = () => {
   const [page, setPage] = useState(1);
@@ -16,29 +15,7 @@ const Experiences = () => {
       title="Experiences"
       icon={<ProfileOutlined style={{ marginRight: "8px" }} />}
     >
-      <Row style={{ marginBottom: "16px" }}>
-        <Col span={12}>
-          <Space direction="vertical">
-            <Search
-              placeholder="input search text"
-              onSearch={(value) => alert("search data: " + value)}
-              enterButton
-              style={{ width: "300px" }}
-              allowClear
-            />
-          </Space>
-        </Col>
-        <Col span={12}>
-          <Button
-            type="primary"
-            icon={<PlusOutlined />}
-            style={{ float: "right", width: "150px" }}
-            onClick={() => alert("Create new Data")}
-          >
-            Create Data
-          </Button>
-        </Col>
-      </Row>
+      <HeaderTable />
       <Table
         dataSource={listExperiences}
         columns={ExperiencesColumn(page)}
