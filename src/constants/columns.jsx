@@ -198,24 +198,24 @@ export const ExperiencesColumn = (page) => {
       width: "200px",
       render: (value) => parseTimestamptzToDateString(value),
     },
-    {
-      title: "Skills",
-      dataIndex: "skills_tag",
-      key: "skills_tag",
-      width: "400px",
-      render: (value) => (
-        <>
-          {value.split(",").map((item) => {
-            const random = Math.floor(Math.random() * colors.length);
-            return (
-              <Tag color={colors[random]} key={item}>
-                {item}
-              </Tag>
-            );
-          })}
-        </>
-      ),
-    },
+    // {
+    //   title: "Skills",
+    //   dataIndex: "skills_tag",
+    //   key: "skills_tag",
+    //   width: "400px",
+    //   render: (value) => (
+    //     <>
+    //       {value.split(",").map((item) => {
+    //         const random = Math.floor(Math.random() * colors.length);
+    //         return (
+    //           <Tag color={colors[random]} key={item}>
+    //             {item}
+    //           </Tag>
+    //         );
+    //       })}
+    //     </>
+    //   ),
+    // },
     {
       title: "Action",
       dataIndex: "id",

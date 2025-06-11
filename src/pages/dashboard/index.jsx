@@ -56,20 +56,6 @@ const Dashboard = () => {
       </Row>
       <Divider orientation="left" />
       <Row gutter={[24, 24]}>
-        {/* <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(2, 100fr)",
-            gap: 24,
-            padding: 20,
-            maxWidth: "100%",
-          }}
-        >
-          <UserEngagementChart />
-          <ContentPerformanceChart />
-          <PublishingActivityChart />
-          <TrafficSourcesChart />
-        </div> */}
         <Col span={12}>
           <Card title="User Engagement Over Time" variant="borderless">
             <UserEngagementChart />
