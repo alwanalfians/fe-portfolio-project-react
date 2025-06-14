@@ -1,21 +1,25 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
+import Loading from "@components/loading";
 
-import Dashboard from "@pages/dashboard";
-import Educations from "@pages/educations";
-import Experiences from "@pages/experiences";
-import ProtectedRoute from "./protectedRoute";
+// Lazy load components
+const Dashboard = lazy(() => import("@pages/dashboard"));
+const Educations = lazy(() => import("@pages/educations"));
+const Experiences = lazy(() => import("@pages/experiences"));
+const ProtectedRoute = lazy(() => import("./protectedRoute"));
 
 const RoutesApp = () => {
   return (
-    <Routes>
-      <Route path="/" index element={<ProtectedRoute />} />
-      <Route path="dashboard" element={<Dashboard />} />
-      <Route path="data">
-        <Route path="educations" element={<Educations />} />
-        <Route path="experiences" element={<Experiences />} />
-      </Route>
-    </Routes>
+    <Suspense fallback={<Loading />}>
+      <Routes>
+        <Route path="/" index element={<ProtectedRoute />} />
+        <Route path="dashboard" element={<Dashboard />} />
+        <Route path="data">
+          <Route path="educations" element={<Educations />} />
+          <Route path="experiences" element={<Experiences />} />
+        </Route>
+      </Routes>
+    </Suspense>
   );
 };
 
