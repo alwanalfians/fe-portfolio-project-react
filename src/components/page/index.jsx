@@ -1,32 +1,45 @@
 import React from "react";
 import { Col, Layout, Row } from "antd";
 
-import HeaderBar from "@components/layout/headBar";
-import SideBar from "@components/layout/siderBar";
-import BreadcrumbBar from "@components/layout/breadcrumbBar";
-import ContentBar from "@components/layout/contentSection";
-import FootBar from "@components/layout/footbar";
+import {
+  HeaderBar,
+  SideBar,
+  BreadcrumbBar,
+  ContentBar,
+  FootBar,
+  LayoutWrapper,
+} from "@components/layout";
 
 const Page = ({ title, icon, children }) => {
   return (
     <Layout>
-      <HeaderBar />
+      <LayoutWrapper>
+        <HeaderBar />
+      </LayoutWrapper>
       <Layout>
-        <SideBar />
+        <LayoutWrapper>
+          <SideBar />
+        </LayoutWrapper>
         <Layout style={{ padding: "0 24px 24px" }}>
-          <BreadcrumbBar />
-          <ContentBar>
-            <Row style={{ marginBottom: "32px" }}>
-              <Col>
-                <h1>
-                  {icon}
-                  {title}
-                </h1>
-              </Col>
-            </Row>
-            {children}
-          </ContentBar>
-          <FootBar />
+          <LayoutWrapper>
+            <BreadcrumbBar />
+          </LayoutWrapper>
+          <LayoutWrapper>
+            <ContentBar>
+              <Row style={{ marginBottom: "32px" }}>
+                <Col>
+                  <h1>
+                    {icon}
+                    {title}
+                  </h1>
+                </Col>
+              </Row>
+              {children}
+            </ContentBar>
+          </LayoutWrapper>
+          <LayoutWrapper>
+            <FootBar />
+          </LayoutWrapper>
         </Layout>
       </Layout>
     </Layout>

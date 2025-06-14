@@ -8,10 +8,13 @@ import {
 } from "@ant-design/icons";
 import { Card, Col, Divider, Row, Statistic } from "antd";
 
-import UserEngagementChart from "@components/charts/userEngagementChart";
-import ContentPerformanceChart from "@components/charts/contentPerformanceChart ";
-import TrafficSourcesChart from "@components/charts/trafficSourcesChart";
-import PublishingActivityChart from "@components/charts/publishingActivityChart";
+import {
+  UserEngagementChart,
+  ContentPerformanceChart,
+  TrafficSourcesChart,
+  PublishingActivityChart,
+  ChartWrapper,
+} from "@components/charts";
 
 const Dashboard = () => {
   return (
@@ -58,22 +61,30 @@ const Dashboard = () => {
       <Row gutter={[24, 24]}>
         <Col span={12}>
           <Card title="User Engagement Over Time" variant="borderless">
-            <UserEngagementChart />
+            <ChartWrapper>
+              <UserEngagementChart />
+            </ChartWrapper>
           </Card>
         </Col>
         <Col span={12}>
           <Card title="Content Performance Distribution" variant="borderless">
-            <ContentPerformanceChart />
+            <ChartWrapper>
+              <ContentPerformanceChart />
+            </ChartWrapper>
           </Card>
         </Col>
         <Col span={12}>
           <Card title="Publishing Activity & Trends" variant="borderless">
-            <PublishingActivityChart />
+            <ChartWrapper>
+              <PublishingActivityChart />
+            </ChartWrapper>
           </Card>
         </Col>
         <Col span={12}>
           <Card title="Traffic Sources Breakdown" variant="borderless">
-            <TrafficSourcesChart />
+            <ChartWrapper>
+              <TrafficSourcesChart />
+            </ChartWrapper>
           </Card>
         </Col>
       </Row>

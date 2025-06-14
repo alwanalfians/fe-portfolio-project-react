@@ -5,7 +5,7 @@ import Page from "@components/page";
 import { ExperiencesColumn } from "@constants/columns";
 import { listExperiences } from "@mockData/experiences";
 import { ProfileOutlined } from "@ant-design/icons";
-import HeaderTable from "@components/headerTable";
+import { HeaderTable, TableWrapper } from "@components/headerTable";
 
 const Experiences = () => {
   const [page, setPage] = useState(1);
@@ -15,7 +15,9 @@ const Experiences = () => {
       title="Experiences"
       icon={<ProfileOutlined style={{ marginRight: "8px" }} />}
     >
-      <HeaderTable />
+      <TableWrapper>
+        <HeaderTable />
+      </TableWrapper>
       <Table
         dataSource={listExperiences}
         columns={ExperiencesColumn(page)}

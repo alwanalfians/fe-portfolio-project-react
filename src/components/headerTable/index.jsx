@@ -1,10 +1,14 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { Button, Col, Input, Row, Space } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
+import Loading from "@components/loading";
 
 const { Search } = Input;
 
-const HeaderTable = () => {
+// Lazy load header table component
+const HeaderTable = lazy(() => import("./headerTable"));
+
+const HeaderTableComponent = () => {
   return (
     <Row style={{ marginBottom: "16px" }}>
       <Col span={12}>
@@ -32,4 +36,9 @@ const HeaderTable = () => {
   );
 };
 
-export default HeaderTable;
+// Wrapper component for lazy-loaded table components
+const TableWrapper = ({ children }) => (
+  <Suspense fallback={<Loading />}>{children}</Suspense>
+);
+
+export { HeaderTable, TableWrapper };

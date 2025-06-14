@@ -4,7 +4,7 @@ import { BookOutlined } from "@ant-design/icons";
 import { Table } from "antd";
 import { listEducations } from "@mockData/educations";
 import { EducationsColumn } from "@constants/columns";
-import HeaderTable from "@components/headerTable";
+import { HeaderTable, TableWrapper } from "@components/headerTable";
 
 const Educations = () => {
   const [page, setPage] = useState(1);
@@ -14,7 +14,9 @@ const Educations = () => {
       title="Educations"
       icon={<BookOutlined style={{ marginRight: "8px" }} />}
     >
-      <HeaderTable />
+      <TableWrapper>
+        <HeaderTable />
+      </TableWrapper>
       <Table
         dataSource={listEducations}
         columns={EducationsColumn(page)}
