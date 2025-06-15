@@ -1,5 +1,5 @@
 import React from "react";
-import Page from "../../components/page";
+import PageWrapper from "../../components/pageWrapper";
 import {
   ArrowDownOutlined,
   ArrowUpOutlined,
@@ -15,7 +15,7 @@ import PublishingActivityChart from "@components/charts/publishingActivityChart"
 
 const Dashboard = () => {
   return (
-    <Page
+    <PageWrapper
       title="Dashboard"
       icon={<DashboardOutlined style={{ marginRight: "8px" }} />}
     >
@@ -77,7 +77,7 @@ const Dashboard = () => {
           </Card>
         </Col>
       </Row>
-    </Page>
+    </PageWrapper>
   );
 };
 

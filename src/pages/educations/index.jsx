@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Page from "../../components/page";
+import PageWrapper from "../../components/pageWrapper";
 import { BookOutlined } from "@ant-design/icons";
 import { Table } from "antd";
 import { listEducations } from "@mockData/educations";
@@ -10,7 +10,7 @@ const Educations = () => {
   const [page, setPage] = useState(1);
 
   return (
-    <Page
+    <PageWrapper
       title="Educations"
       icon={<BookOutlined style={{ marginRight: "8px" }} />}
     >
@@ -25,7 +25,7 @@ const Educations = () => {
           },
         }}
       />
-    </Page>
+    </PageWrapper>
   );
 };
 

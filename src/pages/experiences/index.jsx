@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Table } from "antd";
 
-import Page from "@components/page";
+import PageWrapper from "@components/pageWrapper";
 import { ExperiencesColumn } from "@constants/columns";
 import { listExperiences } from "@mockData/experiences";
 import { ProfileOutlined } from "@ant-design/icons";
@@ -11,7 +11,7 @@ const Experiences = () => {
   const [page, setPage] = useState(1);
 
   return (
-    <Page
+    <PageWrapper
       title="Experiences"
       icon={<ProfileOutlined style={{ marginRight: "8px" }} />}
     >
@@ -26,7 +26,7 @@ const Experiences = () => {
           },
         }}
       />
-    </Page>
+    </PageWrapper>
   );
 };
 
